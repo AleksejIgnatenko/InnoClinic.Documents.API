@@ -32,9 +32,9 @@ namespace InnoClinic.Documents.Application.Services
             return id.ToString();
         }
 
-        public async Task<Stream> GetPhotoByNameAsync(string id)
+        public async Task<Stream> GetPhotoByIdAsync(string id)
         {
-            return await _photoRepository.GetByNameAsync(id.ToString());
+            return await _photoRepository.GetByIdAsync(id.ToString());
         }
 
         public async Task UpdatePhotoAsync(IFormFile photo, string id)
