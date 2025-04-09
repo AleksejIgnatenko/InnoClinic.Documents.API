@@ -30,7 +30,11 @@ builder.Services.AddSingleton(provider =>
         .Build();
 });
 
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
 builder.Services.AddTransient<IValidationService, ValidationService>();
+
+builder.Services.AddScoped<IDocumentService, DocumentService>();
 
 builder.Services.AddScoped<IPhotoService, PhotoService>();
 builder.Services.AddScoped<IPhotoRepository, PhotoRepository>();
@@ -57,6 +61,7 @@ app.UseCors(x =>
     x.WithHeaders().AllowAnyHeader();
     x.WithOrigins("http://localhost:4000", "http://localhost:4001");
     x.WithMethods().AllowAnyMethod();
+    x.AllowCredentials();
 });
 
 app.Run();

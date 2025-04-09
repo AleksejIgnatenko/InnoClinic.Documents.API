@@ -29,7 +29,7 @@ namespace InnoClinic.Documents.DataAccess.Repositories
             }
         }
 
-        public async Task<Stream> GetByNameAsync(string id)
+        public async Task<Stream> GetByIdAsync(string id)
         {
             await IsBucketExist();
 
